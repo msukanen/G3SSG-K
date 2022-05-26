@@ -17,4 +17,4 @@ inline fun <reified T : Any> Any.adaptTo(): T {
 }
 
 class NoSuitableAdapterFoundException(from: Any, to: KClass<*>)
-    : Exception("No suitable adapter found to convert $from to $to")
+    : Exception("Adapter not found/registered to convert $from to $to")
