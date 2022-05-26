@@ -14,17 +14,6 @@ sealed class Moon {
     enum class Type { Moonlet, Small, Medium, Large, Giant, SmallGG }
 }
 
-private fun mkAxialTilt() = when(2.d6) {
-    in 2..3 -> 0
-    in 4..7 -> 1.d6 * 3
-    in 8..10 -> 2.d6 + 20
-    11 -> 3.d6 + 30
-    else -> {
-        val t = 1.d6 * 10 + 40
-        if (t > 90) 90 else t
-    }
-}
-
 interface Planet : OrbitalElement {
     enum class Composition { GasGiant, Silicate, LowIron, MedIron, HiIron }
 
@@ -110,6 +99,18 @@ sealed class CorePlanet(s: Star, i: Int) : Element(i), Planet {
                 else -> Time.Hours(3.d6)
             }
         }
+
+        @JvmStatic
+        protected fun axialTilt() = when(2.d6) {
+            in 2..3 -> 0
+            in 4..7 -> 1.d6 * 3
+            in 8..10 -> 2.d6 + 20
+            11 -> 3.d6 + 30
+            else -> {
+                val t = 1.d6 * 10 + 40
+                if (t > 90) 90 else t
+            }
+        }
     }
 }
 
@@ -122,7 +123,7 @@ class Terrestrial(s: Star, i: Int) : CorePlanet(s, i) {
         density < 6.1 -> Planet.Composition.MedIron
         else -> Planet.Composition.HiIron
     }
-    override val axialTilt: Int = mkAxialTilt()
+    override val axialTilt: Int = axialTilt()
     override val lenOfDay: Time
     init {
         val mod = when {
@@ -170,7 +171,7 @@ class GasGiant(s: Star, i: Int) : CorePlanet(s, i) {
 
     override val composition: Planet.Composition = Planet.Composition.GasGiant
     override val density: Double = 0.5 + 0.1 * 1.d20
-    override val axialTilt: Int = mkAxialTilt()
+    override val axialTilt: Int = axialTilt()
     override val lenOfDay: Time
 
     init {
