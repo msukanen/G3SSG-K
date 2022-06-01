@@ -18,6 +18,7 @@ abstract class RNG {
          * @return Int within (inclusive) {@code from} and {@code to}.
          */
         fun range(from: Int, to: Int): Int = rng.nextInt(to - from) + from
+        fun range(from: Double, to: Double): Double = rng.nextDouble(from, to+0.0001)
 
         /**
          * Generate a random integer by emulating a die cast.

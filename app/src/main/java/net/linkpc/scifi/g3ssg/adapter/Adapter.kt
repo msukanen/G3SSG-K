@@ -5,15 +5,15 @@ import kotlin.reflect.KClass
 
 interface Adapter {
     fun <T: Any> canAdapt(from: Any, to: KClass<T>): Boolean
-    fun <T: Any> adaptTo(from: Any, to: KClass<T>): T
+    fun <T: Any> convert(from: Any, to: KClass<T>): T
 }
 
 val adapters = mutableListOf<Adapter>()
 
-inline fun <reified T : Any> Any.adaptTo(): T {
+inline fun <reified T : Any> Any.convert(): T {
     val adapter = adapters.find { it.canAdapt(this, T::class) }
         ?: throw NoSuitableAdapterFoundException(this, T::class)
-    return adapter.adaptTo(this, T::class)
+    return adapter.convert(this, T::class)
 }
 
 class NoSuitableAdapterFoundException(from: Any, to: KClass<*>)
