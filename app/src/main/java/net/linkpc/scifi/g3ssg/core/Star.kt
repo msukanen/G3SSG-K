@@ -158,3 +158,5 @@ open class Star(
         }
     }
 }
+
+fun Distance.withinBiozoneOf(s:Star) = s.biozone.first >= this && s.biozone.second <= this

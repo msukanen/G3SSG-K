@@ -5,7 +5,7 @@ import net.linkpc.scifi.g3ssg.core.orbital.planet.Atmosphere
 import kotlin.math.sqrt
 
 interface Planet : OrbitalElement {
-    enum class Composition { GasGiant, Silicate, LowIron, MedIron, HiIron }
+    enum class Composition { GasGiant, Silicate, LowIron, MedIron, HiIron, Metallic }
 
     val radius: Double
     val moons: Map<Moon.Type, Int>
