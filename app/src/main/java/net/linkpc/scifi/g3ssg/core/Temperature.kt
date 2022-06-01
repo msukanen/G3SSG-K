@@ -36,8 +36,10 @@ class K(guts:Double) : CoreTemperature() {
     }
 
     override fun compareTo(other: Temperature): Int = toDouble().compareTo(other.convert<K>().toDouble())
-    operator fun plus(other: Number): K = K(raw * other.toDouble())
+    operator fun plus(other: Number): K = K(raw + other.toDouble())
     operator fun plus(other: Temperature): K = K(raw + other.convert<K>().toDouble())
+    operator fun minus(other: Number): K = K(raw - other.toDouble())
+    operator fun minus(other: Temperature): K = K(raw - other.convert<K>().toDouble())
 
     companion object {
         init {
@@ -70,8 +72,10 @@ class F(guts:Double) : CoreTemperature() {
     }
 
     override fun compareTo(other: Temperature): Int = toDouble().compareTo(other.convert<F>().toDouble())
-    operator fun plus(other: Number): F = F(raw * other.toDouble())
+    operator fun plus(other: Number): F = F(raw + other.toDouble())
     operator fun plus(other: Temperature): F = F(raw + other.convert<F>().toDouble())
+    operator fun minus(other: Number): F = F(raw - other.toDouble())
+    operator fun minus(other: Temperature): F = F(raw - other.convert<F>().toDouble())
 
     companion object {
         private const val K0 = -459.67
@@ -105,8 +109,10 @@ class C(guts:Double) : CoreTemperature() {
     }
 
     override fun compareTo(other: Temperature): Int = toDouble().compareTo(other.convert<C>().toDouble())
-    operator fun plus(other: Number): C = C(raw * other.toDouble())
+    operator fun plus(other: Number): C = C(raw + other.toDouble())
     operator fun plus(other: Temperature): C = C(raw + other.convert<C>().toDouble())
+    operator fun minus(other: Number): C = C(raw - other.toDouble())
+    operator fun minus(other: Temperature): C = C(raw - other.convert<C>().toDouble())
 
     companion object {
         internal const val K0 = -273.15
