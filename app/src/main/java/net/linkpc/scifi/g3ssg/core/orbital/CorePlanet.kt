@@ -2,6 +2,7 @@ package net.linkpc.scifi.g3ssg.core.orbital
 
 import net.linkpc.scifi.g3ssg.core.*
 import net.linkpc.scifi.g3ssg.core.orbital.planet.Atmosphere
+import net.linkpc.scifi.g3ssg.unit.distance.AU
 import kotlin.math.sqrt
 
 interface Planet : OrbitalElement {

@@ -2,6 +2,8 @@ package net.linkpc.scifi.g3ssg.core.orbital.planet
 
 import net.linkpc.scifi.g3ssg.adapter.convert
 import net.linkpc.scifi.g3ssg.core.*
+import net.linkpc.scifi.g3ssg.unit.temperature.*
+import net.linkpc.scifi.g3ssg.unit.Temperature
 import net.linkpc.scifi.g3ssg.util.IF
 
 /**

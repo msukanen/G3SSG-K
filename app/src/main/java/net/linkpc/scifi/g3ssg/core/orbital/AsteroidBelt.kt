@@ -1,6 +1,6 @@
 package net.linkpc.scifi.g3ssg.core.orbital
 
-import net.linkpc.scifi.g3ssg.core.AU
+import net.linkpc.scifi.g3ssg.unit.distance.AU
 import net.linkpc.scifi.g3ssg.core.Star
 import net.linkpc.scifi.g3ssg.core.d6
 

@@ -1,14 +1,16 @@
 package net.linkpc.scifi.g3ssg.core
 
 import net.linkpc.scifi.g3ssg.core.orbital.Orbit
+import net.linkpc.scifi.g3ssg.unit.distance.AU
+import net.linkpc.scifi.g3ssg.unit.Distance
 
 open class Star(
     val type:Type,
     val klass:Class,
     val mass:Double,
-    b:AU,
-    val innerLimit:AU,
-    val radius:AU,
+    b: AU,
+    val innerLimit: AU,
+    val radius: AU,
     val planetsOn:Int,
     n:Int,
     val lifeRollMod:Int
@@ -30,7 +32,7 @@ open class Star(
         else -> 0.4
     }
 
-    fun distanceOf(i:Int): AU  = AU(when (i) {
+    fun distanceOf(i:Int): AU = AU(when (i) {
         1 -> baseD
         2 -> baseD + bodeC
         else -> baseD + (2 shl (i - 3)) * bodeC

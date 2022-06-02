@@ -1,6 +1,8 @@
 package net.linkpc.scifi.g3ssg.core.orbital
 
-import net.linkpc.scifi.g3ssg.core.*
+import net.linkpc.scifi.g3ssg.core.Star
+import net.linkpc.scifi.g3ssg.core.d6
+import net.linkpc.scifi.g3ssg.unit.distance.AU
 
 interface Orbit {
     val idx: Int
@@ -14,7 +16,7 @@ sealed class Element(override val idx:Int) : Orbit {
     class Empty : Element(0)
 }
 
-fun generateOrbits(s:Star): List<Orbit> {
+fun generateOrbits(s: Star): List<Orbit> {
     val es = mutableListOf<Orbit>()
 
     if (3.d6 <= s.planetsOn) {
